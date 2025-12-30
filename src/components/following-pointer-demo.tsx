@@ -19,7 +19,7 @@ export default function FollowingPointerDemo() {
                         Custom Following Pointer
                     </h2>
                     <p className="text-gray-400 max-w-md mx-auto">
-                        Hover over this area to see the custom pointer in action. We've removed the card content to focus purely on the interaction.
+                        Hover over this area to see the custom pointer in action. We&apos;ve removed the card content to focus purely on the interaction.
                     </p>
                 </div>
             </FollowerPointerCard>

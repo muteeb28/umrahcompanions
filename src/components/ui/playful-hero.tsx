@@ -197,7 +197,7 @@ export default function PlayfulHero() {
                     if (!inputValue.trim() || isLoading) return;
 
                     const userMessage = { role: "user", content: inputValue };
-                    setMessages((prev: any[]) => [...prev, userMessage]);
+                    setMessages((prev: { role: string; content: string }[]) => [...prev, userMessage]);
                     setInputValue("");
                     setIsLoading(true);
 
@@ -209,7 +209,7 @@ export default function PlayfulHero() {
                       });
                       const data = await response.json();
                       if (data.response) {
-                        setMessages((prev: any[]) => [...prev, { role: "assistant", content: data.response }]);
+                        setMessages((prev: { role: string; content: string }[]) => [...prev, { role: "assistant", content: data.response }]);
                       }
                     } catch (error) {
                       console.error("Chat error:", error);
@@ -275,7 +275,7 @@ export default function PlayfulHero() {
                               animate={isVisible ? "visible" : "hidden"}
                             >
                               <p className="text-sm text-gray-300 leading-relaxed">
-                                Salaam! I'm your Umrah Assistant. How can I help you today?
+                                Salaam! I&apos;m your Umrah Assistant. How can I help you today?
                               </p>
                             </motion.div>
                           ) : (

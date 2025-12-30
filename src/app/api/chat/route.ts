@@ -38,7 +38,7 @@ Example response for booking inquiries:
         const response = completion.choices[0]?.message?.content || "No response generated.";
 
         return NextResponse.json({ response });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Groq API Error:", error);
         return NextResponse.json(
             { error: "Failed to fetch response from Groq" },
