@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 import ReactMarkdown from "react-markdown";
@@ -91,44 +92,18 @@ export default function PlayfulHero() {
     }),
   };
 
-  const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.6, rotateZ: -10 },
-    visible: (i: number) => ({
-      opacity: 1,
-      scale: 1,
-      rotateZ: 0,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 200,
-        delay: 1.8 + i * 0.1,
-      },
-    }),
-  };
-
-  const buttonVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
 
   return (
     <FollowerPointerCard
       title={
         <div className="flex items-center space-x-2">
-          <img src="/logo.png" alt="TravelBare" className="w-6 h-6 rounded-full object-cover" />
+          <Image
+            src="/logo.png"
+            alt="TravelBare"
+            width={24}
+            height={24}
+            className="rounded-full object-cover"
+          />
           <p className="text-white font-medium text-xs">TravelBare</p>
         </div>
       }

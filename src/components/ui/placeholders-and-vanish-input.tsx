@@ -40,7 +40,7 @@ export function PlaceholdersAndVanishInput({
             }
             document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
-    }, [placeholders]);
+    }, [placeholders, handleVisibilityChange, startAnimation]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const newDataRef = useRef<{ x: number; y: number; r: number; color: string }[]>([]);
@@ -172,7 +172,7 @@ export function PlaceholdersAndVanishInput({
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         vanishAndSubmit();
-        onSubmit && onSubmit(e);
+        if (onSubmit) onSubmit(e);
     };
     return (
         <form
@@ -193,7 +193,7 @@ export function PlaceholdersAndVanishInput({
                 onChange={(e) => {
                     if (!animating) {
                         setValue(e.target.value);
-                        onChange && onChange(e);
+                        if (onChange) onChange(e);
                     }
                 }}
                 onKeyDown={handleKeyDown}

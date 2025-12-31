@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 
@@ -19,7 +19,7 @@ export default function TracingBeamDemo() {
 
                         <div className="text-sm prose prose-sm dark:prose-invert text-neutral-300">
                             {item?.image && (
-                                <img
+                                <Image
                                     src={item.image}
                                     alt="blog thumbnail"
                                     height="1000"
